@@ -23,7 +23,6 @@ def scramble(sourceString, salt, maxLength=MAX_LEN):
     modSource = [x if x < ASCII_END else ASCII_START + x - ASCII_END for x in ordSource] 
     scrambledSource = ''.join(chr(x) for x in modSource)
 
-    
     if len(sourceString) < maxLength:
         startingIdx = random.randint(0, maxLength - sourceLen)
         paddedScrambledSource = randomString[0:startingIdx] + scrambledSource + randomString[startingIdx + sourceLen:]
@@ -43,7 +42,6 @@ def unscramble(sourceString, salt):
 
 
 if __name__ == '__main__':
-
     argstring = getpass(prompt='String : ')
     saltstring = getpass(prompt='Pin : ')
     if not all([x in string.digits for x in saltstring]):
